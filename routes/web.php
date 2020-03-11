@@ -63,7 +63,9 @@ Route::get('/NSS_all',function () {
     return view('NSS_all');
 });
 
-
+Route::get('/newuser',function () {
+    return view('newuser');
+});
 
 Route::get('/addProduct',[
     'uses'=>'ProductController@create',
@@ -142,7 +144,7 @@ Route::post('paypal','PaymentController@payWithpaypal') ;
 Route::get('status','PaymentController@getPaymentStatus') ; 
 
 Route::post('newuser', [
-    'uses'=>'ProductController@createUser',
+    'uses'=>'RegisterController@createUser',
     'as' => 'new.user'
 ]);
 

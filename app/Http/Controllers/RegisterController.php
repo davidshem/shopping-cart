@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
@@ -58,37 +58,24 @@ class RegisterController extends Controller
         ]);
     }
 
-    /**
-     * Create a new user instance after a valid registration.
-     *
-     * @param  array  $data
-     * @return \App\User
-     */
-    public function create(array $data)
-    {
-        $fileName = 'null';
-       /*  if (Input::file('image')->isValid()) {
-            $destinationPath = public_path('uploads/files');
-            $extension = Input::file('image')->getClientOriginalExtension();
-            $fileName = uniqid().'.'.$extension;
-        
-            Input::file('image')->move($destinationPath, $fileName);
 
-        } */
+    public function createUser()
+    {
         $r=request(); //step3 get data from HTML
         $image=$r->file('image');        
         $image->move('image',$image->getClientOriginalName());   //images is the location                
         
         $imageName=$image->getClientOriginalName(); 
 
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-            'image'=> '$imageName'
+        $addUser=User::create([ //step 4 bind data
             
-        ]);
+            'name'=>$r->name, //fullname from HTML
+            'email'=>$r->email,
+            'password'=>$r->password,
+            'image'=>$imageName
+        ]); 
     }
+
 
 
 }

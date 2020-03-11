@@ -128,17 +128,8 @@ class ProductController extends Controller
         Return redirect()->route('view.product'); 
     }
 
-    public function createUser()
+/*    public function createUser()
     {
-        $fileName = 'null';
-       /*  if (Input::file('image')->isValid()) {
-            $destinationPath = public_path('uploads/files');
-            $extension = Input::file('image')->getClientOriginalExtension();
-            $fileName = uniqid().'.'.$extension;
-        
-            Input::file('image')->move($destinationPath, $fileName);
-
-        } */
         $r=request(); //step3 get data from HTML
         $image=$r->file('image');        
         $image->move('image',$image->getClientOriginalName());   //images is the location                
@@ -153,7 +144,7 @@ class ProductController extends Controller
             'image'=>$imageName
         ]);
     }
-
+*/
 
 
 
