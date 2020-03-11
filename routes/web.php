@@ -120,13 +120,31 @@ Route::get('/NSS_all',[
     'as'=>'NSS_all.list'
 ]);
 
+Route::get('/NSS_Adidas',[
+    'uses'=>'ProductController@NSS_Adidas',
+    'as'=>'NSS_all.Adidas'
+]);
+
+Route::get('/NSS_Nike',[
+    'uses'=>'ProductController@NSS_Nike',
+    'as'=>'NSS_all.Nike'
+]);
+
+Route::get('/NSS_Reebok',[
+    'uses'=>'ProductController@NSS_Reebok',
+    'as'=>'NSS_all.Reebok'
+]);
+
 //process payment
 Route::post('paypal','PaymentController@payWithpaypal') ; 
 
 //check status
 Route::get('status','PaymentController@getPaymentStatus') ; 
 
-
+Route::post('newuser', [
+    'uses'=>'ProductController@createUser',
+    'as' => 'new.user'
+]);
 
 
 Auth::routes();

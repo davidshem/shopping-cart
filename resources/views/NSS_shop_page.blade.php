@@ -66,10 +66,10 @@
         <div class="row">
           <div class="col-md-2">
             <ul class="list-group">
-                <li class="b"><a class="active" href="NSS shop.html"><b>ALL</b></a></li>
-                <li class="b"><a href="nike.html"><b>Nike</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="logo\nike.png" width="50"></a></li>
-                <li class="b"><a href="adidas.html"><b>Adidas</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="logo\adidas1.png" width="35"></a></li>
-                <li class="b"><a href="reebok.html"><b>Reebok</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="logo\Reebook.png" width="40"></a></li>
+                <li class="b"><a class="active" href="NSS_all"><b>ALL</b></a></li>
+                <li class="b"><a href="NSS_Nike"><b>Nike</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="logo\nike.png" width="50"></a></li>
+                <li class="b"><a href="NSS_Adidas"><b>Adidas</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="logo\adidas1.png" width="35"></a></li>
+                <li class="b"><a href="NSS_Reebok"><b>Reebok</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="logo\Reebook.png" width="40"></a></li>
             </ul>
       </div>
 

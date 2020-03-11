@@ -6,6 +6,7 @@ use DB;
 use Illuminate\Http\Request;
 use App\Product; //step 1
 use Session;
+use App\User;
 
 class ProductController extends Controller
 {
@@ -67,6 +68,24 @@ class ProductController extends Controller
         
     }
 
+    public function NSS_Adidas(){
+        $products=Product::all()->where('categoryID','Adidas');        
+        return view('NSS_all')->with('products',$products);
+        
+    }
+
+    public function NSS_Nike(){
+        $products=Product::all()->where('categoryID','Nike');        
+        return view('NSS_all')->with('products',$products);
+        
+    }
+
+    public function NSS_Reebok(){
+        $products=Product::all()->where('categoryID','Reebok');        
+        return view('NSS_all')->with('products',$products);
+        
+    }
+
     public function detail($id){
         $products =Product::all()->where('id',$id);
         return view('productdetail')->with('products',$products);
@@ -107,6 +126,32 @@ class ProductController extends Controller
 
         Session::flash('success','product insert successfully');
         Return redirect()->route('view.product'); 
+    }
+
+    public function createUser()
+    {
+        $fileName = 'null';
+       /*  if (Input::file('image')->isValid()) {
+            $destinationPath = public_path('uploads/files');
+            $extension = Input::file('image')->getClientOriginalExtension();
+            $fileName = uniqid().'.'.$extension;
+        
+            Input::file('image')->move($destinationPath, $fileName);
+
+        } */
+        $r=request(); //step3 get data from HTML
+        $image=$r->file('image');        
+        $image->move('image',$image->getClientOriginalName());   //images is the location                
+        
+        $imageName=$image->getClientOriginalName(); 
+
+        $addUser=User::create([ //step 4 bind data
+            
+            'name'=>$r->name, //fullname from HTML
+            'email'=>$r->email,
+            'password'=>$r->password,
+            'image'=>$imageName
+        ]);
     }
 
 

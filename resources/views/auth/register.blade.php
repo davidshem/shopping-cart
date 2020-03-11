@@ -8,8 +8,8 @@
                 <div class="card-header">{{ __('Register') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
-                        @csrf
+                    <form method="POST" action="{{ route('new.user') }}" enctype="multipart/form-data">
+                       {{ @csrf_field() }}
 
                         <div class="form-group row">
                             <label for="areaid" class="col-sm-4 col-form-label text-md-right"></label>
