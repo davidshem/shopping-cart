@@ -122,6 +122,11 @@ Route::get('/NSS_all',[
     'as'=>'NSS_all.list'
 ]);
 
+Route::get('/lucky',[
+    'uses'=>'ProductController@lucky',
+    'as'=>'lucky.list'
+]);
+
 Route::get('/NSS_Adidas',[
     'uses'=>'ProductController@NSS_Adidas',
     'as'=>'NSS_all.Adidas'

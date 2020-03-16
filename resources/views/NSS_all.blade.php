@@ -11,7 +11,8 @@
                             <a href="{{route('product.detail', ['id'=>$product->id])}}"><img src="{{asset('image/')}}/{{$product->image}}" alt="" class="img-fluid"></a>
                             <li class="list-group-item">{{$product->categoryID}}</li>
                             <div class="card-heading">RM{{$product->price}}</div>
-                            <button style="float:right" class="btn btn-danger btn-xs">Add to Cart</button>
+			                      <a href="{{route('product.detail', ['id'=>$product->id])}}">
+                            <button style="float:right" class="btn btn-danger btn-xs">Details</button></a>
                         </div>
                       </div>
                     </div>

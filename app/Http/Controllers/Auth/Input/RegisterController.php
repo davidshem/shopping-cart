@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
@@ -53,29 +53,21 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'image' => ['required', 'string', 'max:255'],
-
         ]);
     }
 
-
-    public function createUser()
+    /**
+     * Create a new user instance after a valid registration.
+     *
+     * @param  array  $data
+     * @return \App\User
+     */
+    protected function create(array $data)
     {
-        $r=request(); //step3 get data from HTML
-        $image=$r->file('image');        
-        $image->move('image',$image->getClientOriginalName());   //images is the location                
-        
-        $imageName=$image->getClientOriginalName(); 
-
-        $addUser=User::create([ //step 4 bind data
-            
-            'name'=>$r->name, //fullname from HTML
-            'email'=>$r->email,
-            'password'=>$r->password,
-            'image'=>$imageName
-        ]); 
+        return User::create([
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'password' => Hash::make($data['password']),
+        ]);
     }
-
-
-
 }

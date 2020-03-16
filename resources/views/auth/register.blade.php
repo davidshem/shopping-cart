@@ -8,24 +8,8 @@
                 <div class="card-header">{{ __('Register') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('new.user') }}" enctype="multipart/form-data">
-                       {{ @csrf_field() }}
-
-                        <div class="form-group row">
-                            <label for="areaid" class="col-sm-4 col-form-label text-md-right"></label>
-                            
-                            <div class="col-md-6">
-                                <img class="preview-img" src="http://simpleicon.com/wp-content/uploads/account.png" alt="Preview Image" width="200" height="200"/>
-                                    <div class="browse-button">
-                                        <i class="fa fa-pencil-alt"></i>
-                                        <input class="browse-input" type="file" required name="image" id="image" />
-                                    </div>
-                                    <span class="Error"></span>
-                                    
-                                </select>
-                             </div>
-                        </div>
-                        
+                    <form method="POST" action="{{ route('register') }}">
+                        @csrf
 
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>

@@ -14,7 +14,11 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    You are logged in! <br>
+                    <br>
+                    If you want to enter the mian page, click the button below.<br>
+                    
+                    <a href="{{ url ('/main') }}"><button>go to main page-></button></a>
                 </div>
             </div>
         </div>

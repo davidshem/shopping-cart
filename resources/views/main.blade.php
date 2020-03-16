@@ -14,40 +14,99 @@
         
         <title>Non Stop Shoes</title>
         <style>
+            p.a {
+                font-style: italic;
+                
+            }
+
+            img {
+                border-radius: 50%;
+            }
             body{
-                background-image: url({{ asset('image/shoesbody.png') }});
+                background-image: url(3046992.jpg);
                 background-repeat: no-repeat;
                 background-size: cover;
             }
-            .img {
-                border-radius: 50%;
+        
+            html, body {
+                background-color: #fff;
+                color: #636b6f;
+                font-family: 'Nunito', sans-serif;
+                font-weight: 200;
+                height: 100vh;
+                margin: 0;
+            }
+
+            .full-height {
+                height: 100vh;
+            }
+
+            .flex-center {
+                align-items: center;
+                display: flex;
+                justify-content: center;
+            }
+
+            .position-ref {
+                position: relative;
+            }
+
+            .top-right {
+                position: absolute;
+                right: 10px;
+                top: 18px;
+            }
+
+            .content {
+                text-align: center;
+            }
+
+            .title {
+                font-size: 84px;
+            }
+
+            .links > a {
+                color: #636b6f;
+                padding: 0 25px;
+                font-size: 13px;
+                font-weight: 600;
+                letter-spacing: .1rem;
+                text-decoration: none;
+                text-transform: uppercase;
+            }
+
+            .m-b-md {
+                margin-bottom: 30px;
             }
         </style>
     </head>
 
-    <body>            
+    <body onload="move()">            
         
-        <div style="float:left;width:100%;height: 85%;">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-6" style="margin-top: 100px;">
-                            <div style="margin-top: auto; ">
-                                    <img src="{{ asset('image\logo.png') }}" alt="" width="350px" height="300px">
-                            </div>
-                            <div style="margin-left: 10px;" class="23-container w3-animate-zoom">
-                                    <img src="{{ asset('image\label.png') }}" alt="" width="350px">
-                            </div>       
-                            <input onclick="move()" class="img" type="image" src="{{ asset('image\arrow.jpg') }}" alt="Submit" width="50" >   
-                    </div>
-                    <div class="col-md-6" style="margin-top: 100px;">
-                        <img src="{{ asset('image/shoesface.png') }}" alt="" height="100%" >
-                    </div>
+        <div class="flex-center position-ref " style="height:80%">
+            @if (Route::has('login'))
+                <div class="top-right links">
+                    @auth
+                        <a href="{{ url('/home') }}"><font size="6" color="red">HOME</font></a>
+                    @else
+                        <a href="{{ route('login') }}"><font size="6" color="red">LOGIN</font></a>
+
+                        @if (Route::has('register'))
+                            <a href="{{ route('register') }}"><font size="6" color="red">register</font></a>
+                        @endif
+                    @endauth
+                </div>
+            @endif
+
+            <div class="content" >
+                <div class="title m-b-md">
+                    <b><font color="red">NON-STOP SHOES</font></b> <img src="{{ asset('shoeslogo.png') }}" alt="">
                 </div>
             </div>
         </div>
 
-        <div style="float:left;width:100%;height: 15%;">
-            <div id="myBar" class="w3-green w3-center w3-padding-large"style="width: 0px;display:none;"></div> 
+        <div style="float:left;width:100%;height: 20%;">
+            <div id="myBar" class="w3-black w3-center w3-padding-large" style="width: 0px;display:none;"></div> 
         </div>
                 
         <div>

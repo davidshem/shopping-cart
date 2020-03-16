@@ -68,6 +68,12 @@ class ProductController extends Controller
         
     }
 
+    public function lucky(){
+        $products=Product::all();        
+        return view('lucky')->with('products',$products);
+        
+    }
+
     public function NSS_Adidas(){
         $products=Product::all()->where('categoryID','Adidas');        
         return view('NSS_all')->with('products',$products);
